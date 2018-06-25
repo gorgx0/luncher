@@ -1,0 +1,17 @@
+apply plugin: 'java'
+apply plugin: 'groovy'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    compile (
+        'org.codehaus.groovy:groovy-all:2.5.+'
+
+    )
+    testCompile (
+        'junit:junit:4.+',
+        'org.spockframework:spock-core:1.1-groovy-2.4'
+    )
+}
