@@ -1,6 +1,7 @@
 package com.luncher;
 
 import cucumber.api.CucumberOptions;
+import cucumber.api.SnippetType;
 import cucumber.api.junit.Cucumber;
 import org.junit.runner.RunWith;
 
@@ -14,7 +15,8 @@ import org.junit.runner.RunWith;
                 "html:build/reports/tests/cucumber",
                 "json:build/reports/tests/cucumber/result.json",
                 "junit:build/reports/tests/cucumber/result.xml"
-        }
+        },
+        snippets = SnippetType.CAMELCASE
 )
 public class CukeRunner {
 }

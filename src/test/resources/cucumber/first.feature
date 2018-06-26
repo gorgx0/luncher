@@ -4,3 +4,4 @@ Feature: test of cucumber pltforem
     Given a first test
     When test is executed
     Then result is obtained
+    And result is good

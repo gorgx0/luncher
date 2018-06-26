@@ -15,4 +15,6 @@ Then(~/^result is obtained$/) { ->
 }
 
 
-
+Then(~/^result is good$/) { ->
+    println "Validate results"
+}
