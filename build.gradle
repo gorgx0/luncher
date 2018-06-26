@@ -12,6 +12,8 @@ dependencies {
     )
     testCompile (
         'junit:junit:4.+',
-        'org.spockframework:spock-core:1.1-groovy-2.4'
+        'org.spockframework:spock-core:1.1-groovy-2.4',
+        'io.cucumber:cucumber-groovy:2.0.1',
+        'io.cucumber:cucumber-junit:2.0.1'
     )
 }
