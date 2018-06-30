@@ -14,8 +14,8 @@ import javax.sql.DataSource
 import static ratpack.jackson.Jackson.*
 import static ratpack.groovy.Groovy.*
 
-import ratpack.server.RatpackServer;
-import ratpack.server.ServerConfig;
+import ratpack.server.RatpackServer
+import ratpack.server.ServerConfig
 
 ratpack {
     bindings {
