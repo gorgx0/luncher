@@ -1,19 +1,39 @@
+buildscript {
+    repositories {
+        jcenter()
+    }
+    dependencies {
+        classpath "io.ratpack:ratpack-gradle:1.5.4"
+    }
+}
+
 apply plugin: 'java'
 apply plugin: 'groovy'
+apply plugin: "io.ratpack.ratpack-java"
+
 
 repositories {
-    mavenCentral()
+    jcenter()
 }
 
 dependencies {
     compile (
-        'org.codehaus.groovy:groovy-all:2.5.+'
-
+        'org.codehaus.groovy:groovy-all:2.5.+',
+        'io.ratpack:ratpack-groovy:1.5.4',
+        'io.ratpack:ratpack-session:1.5.4',
+        'io.ratpack:ratpack-jackson-guice:0.9.19',
+        'com.h2database:h2:1.4.197',
+        'org.projectlombok:lombok:1.18.0',
+        'javax.persistence:javax.persistence-api:2.2',
+        'ch.qos.logback:logback-classic:1.2.3'
     )
+
     testCompile (
         'junit:junit:4.+',
         'org.spockframework:spock-core:1.1-groovy-2.4',
         'io.cucumber:cucumber-groovy:2.0.1',
-        'io.cucumber:cucumber-junit:2.0.1'
+        'io.cucumber:cucumber-junit:2.0.1',
+        'io.rest-assured:rest-assured:3.1.0',
+
     )
 }
