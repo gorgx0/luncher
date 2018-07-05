@@ -1,11 +1,13 @@
 package server
 
 import groovy.sql.Sql
-import org.h2.jdbcx.JdbcDataSource
+import groovy.transform.Canonical
+import org.postgresql.ds.PGSimpleDataSource
 import ratpack.form.Form
 import ratpack.groovy.sql.SqlModule
 import ratpack.jackson.Jackson
 import ratpack.jackson.guice.JacksonModule
+import ratpack.service.Service
 import ratpack.session.Session
 import ratpack.session.SessionModule
 
@@ -17,15 +19,16 @@ import static ratpack.groovy.Groovy.*
 import ratpack.server.RatpackServer
 import ratpack.server.ServerConfig
 
+
 ratpack {
     bindings {
         module(SqlModule)
         module(SessionModule)
         add(new JacksonModule())
-        bindInstance DataSource, new JdbcDataSource(
-                URL: "jdbc:h2:mem:test;DB_CLOSE_DELAY=-1",
-                user: "sa",
-                password: ""
+        bindInstance DataSource, new PGSimpleDataSource(
+                URL: "jdbc:postgresql://localhost/luncher",
+                user: "pg",
+                password: "pggg"
         )
     }
     handlers {
@@ -41,8 +44,8 @@ ratpack {
             parse(Form).then({
                 Form form ->
                     def name = form.get("name")
-                    render(name)
-                    sql.execute("insert into users(nick) values(?)",[name])
+                    def userInsertResut = sql.execute("insert into users(nick) values(?)",[name])
+                    render("##${userInsertResut}##")
             })
         }
     }

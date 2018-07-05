@@ -3,8 +3,11 @@
     <persistence-unit name="luncherDB">
         <class>model.User</class>
         <properties>
-            <property name="javax.persistence.jdbc.drive" value="org.h2.Driver" />
-            <!-- TODO: Finish it -->
+            <property name="javax.persistence.jdbc.drive" value="org.postgresql.Driver" />
+            <property name="javax.persistence.jdbc.url" value="jdbc:postgresql://localhost/luncher" />
+            <property name="javax.persistence.jdbc.user" value="pg" />
+            <property name="javax.persistence.jdbc.password" value="pggg" />
+            <property name="hibernate.hbm2ddl.auto" value="create-drop" />
         </properties>
     </persistence-unit>
 </persistence>
