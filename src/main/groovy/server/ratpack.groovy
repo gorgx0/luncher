@@ -44,7 +44,8 @@ ratpack {
             parse(Form).then({
                 Form form ->
                     def name = form.get("name")
-                    def userInsertResut = sql.execute("insert into users(nick) values(?)",[name])
+                    def uid = request.oneCookie("LUNCHERUID")
+                    def userInsertResut = sql.execute("insert into users(nick,uid) values(?,?)",[name,uid])
                     render("##${userInsertResut}##")
             })
         }
